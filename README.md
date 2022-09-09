@@ -11,6 +11,10 @@ CONTENTS
     - [Checkout](#checkout)
     - [Some new files do not belong in git](#some-new-files-do-not-belong-in-git)
     - [Create the documentation source directory](#create-the-documentation-source-directory)
+    - [Create the workflow](#create-the-workflow)
+    - [Push to GitHub](#push-to-github)
+      - [GitHub Actions](#github-actions)
+      - [GitHub Pages](#github-pages)
   - [When you update the documentation](#when-you-update-the-documentation)
 
 ## Initial Setup
@@ -60,11 +64,10 @@ Answer the questions from `sphinx-quickstart`:
 
 <details>
 <summary>example</summary>
-`sphinx-quickstart` is a *question and answer* process that configures your documentation
+<code>sphinx-quickstart</code> is a <em>question and answer</em> process that configures your documentation
 with details specific to your project.  The results are stored in the
-[`source/conf.py`](/docs/source/conf.py) and [`index.rst`](/docs/source/index.rst) files.
+<code>source/conf.py</code> and <code>index.rst</code> files.
 They can be changed by you as you choose.
-</details>
 
     Welcome to the Sphinx 5.1.1 quickstart utility.
 
@@ -102,6 +105,7 @@ They can be changed by you as you choose.
     source files. Use the Makefile to build the docs, like so:
        make builder
     where "builder" is one of the supported builders, e.g. html, latex or linkcheck.
+</details>
 
 Switch back to the repository root directory, then commit this new directory to git:
 
@@ -114,6 +118,8 @@ the local workstation:
     make -C docs clean html
     WEBBROWSER ./docs/build/html/index.html &
 
+### Create the workflow
+
 Create the GitHub workflow directory:
 
     mkdir -p ./.github/workflows
@@ -125,6 +131,8 @@ Download the workflow from the template repository:
     popd
     git commit -ma "add documentation publishing workflow"
 
+### Push to GitHub
+
 Push these commits back to GitHub (you\'ll need your github username and
 authentication token). This will start the workflow that should create
 the HTML documentation and push it to the `gh-pages` branch:
@@ -132,12 +140,18 @@ the HTML documentation and push it to the `gh-pages` branch:
 <details>
 <summary>TODO</summary>
 TODO: Explain the github username and authentication token
+
 Caution about not putting the token in a repository and NOT to push it to GitHub.  How to remove such a push from the repo entirely (not just undo in later commit)
+
 Teach good management of this credential.
+
 git credentials cache is added info
 </details>
 
     git push
+
+
+#### GitHub Actions
 
 Check the Actions logs on the the repository\'s GitHub web site
 (<https://github.com/USERNAME/REPONAME/actions>) to confirm the
@@ -154,6 +168,8 @@ More likely to be:
 * YAML file errors
 * random brownout in GitHub Actions service
 </details>
+
+#### GitHub Pages
 
 Configure the repository\'s GitHub Pages settings on the GitHub web site
 (<https://github.com/USERNAME/REPONAME/settings/pages>), and make these
