@@ -3,3 +3,7 @@
 *.pxt
 *.uxp
 *.uxt
+
+
+# Sphinx
+build/
