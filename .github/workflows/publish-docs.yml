@@ -15,6 +15,10 @@ on:
 # see: https://sphinx-notes.github.io/pages/
 # see: https://github.com/marketplace/actions/sphinx-to-github-pages
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
 
   publish-docs:
@@ -27,6 +31,10 @@ jobs:
       with:
         fetch-depth: 0 # otherwise, you will fail to push refs to dest repo
 
+    - name: Install Python and pip
+      run: |
+        sudo apt-get update && sudo apt-get install -y python3-pip
+
     # - name: Install pandoc
     #   run: |
     #     sudo apt-get update && sudo apt-get install pandoc
@@ -35,9 +43,9 @@ jobs:
       run: |
         pip install sphinx
 
-    # - name: Diagnostics
-    #   run: |
-    #     pip list
+    # # - name: Diagnostics
+    # #   run: |
+    # #     pip list
 
     - name: Build and Commit
       uses: sphinx-notes/pages@master
