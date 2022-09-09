@@ -11,7 +11,6 @@ Welcome to Documentation Repository's documentation!
    :caption: Contents:
 
 
-
 Indices and tables
 ==================
 
