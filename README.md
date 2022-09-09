@@ -4,6 +4,11 @@ Demonstration of Sphinx documentation repository on GitHub.
 
 ## Initial Setup
 
+<details>
+<summary>TODO</summary>
+TODO: Make new repo or use existing
+</details>
+
 Create a new GitHub repository (or use an existing one).
 
 On the Linux workstation, change to your directory with software
@@ -26,7 +31,7 @@ Tell git to ignore a directory, then commit this change to git:
 Set up the Sphinx structure in a `docs/` subdirectory:
 
 <details>
-<summary>Explanation</summary>
+<summary>TODO</summary>
 TODO: Explain `pushd` and `popd` and how they relate to `cd`
 </details>
 
