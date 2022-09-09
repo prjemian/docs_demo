@@ -16,6 +16,8 @@ Procedure
       - [GitHub Actions](#github-actions)
       - [GitHub Pages](#github-pages)
   - [When you update the documentation](#when-you-update-the-documentation)
+  - [Add URL to Repo page](#add-url-to-repo-page)
+  - [</details>](#details)
 
 ## Initial Setup
 
@@ -137,14 +139,14 @@ Push these commits back to GitHub (you\'ll need your github username and [access
 the HTML documentation and push it to the `gh-pages` branch:
 
 <details>
-<summary>TODO</summary>
-Instead of passwords, GitHub now requires remote users to setup and use a <em>personal access token</em> for authentication during `git push` and others steps that require credentials.
+<summary>more about access tokens</summary>
+Instead of passwords, GitHub now requires remote users to setup and use a <em>personal access token</em> for authentication during <code>git push</code> and others steps that require credentials.
 
 A web search for <em>GitHub personal access token</em> should return many links to help on this.  One such link, https://www.howtogeek.com/devops/how-to-set-up-https-personal-access-tokens-for-github-authentication/, provides a good explanation about this PAT and how to manage it locally.
 
 CAUTION: Do <b color="red">NOT</b> put the token in any file that will push it to GitHub.  This would publish your credentials for any hacker anywhere to take over your GitHub account!
 
-We've all done something like that at one time or another.  Or committed a really big file that should not remain in the repository.
+But ..., we've all done something like that at one time or another.  Or committed a really big file that should not remain in the repository.
 
 <b>Q</b>: How to remove such a push from the repo entirely (not just undo in later commit)?
 
@@ -161,7 +163,7 @@ Check the Actions logs on the the repository\'s GitHub web site
 `Publish Sphinx Docs to GitHub Pages` workflow completed successfully.
 
 <details>
-<summary>TODO</summary>
+<summary>logs and errors</summary>
 TODO: Explain about errors in the Actions and how to diagnose
 What could go wrong?  Not likely to be your source code if you built it locally.
 More likely to be:
@@ -210,6 +212,13 @@ is successful, then the revised documentation will be published.
     git commit -am "explain the changes, briefly"
     git push
 
+## Add URL to Repo page
+
+Configure the main repository page to show the new documentation URL.
+
+<details>
+<summary>TODO</summary>
+</details>
 ------
 
 `*`: your choice of WEBBROWSER might be `chromium`, `firefox`,
