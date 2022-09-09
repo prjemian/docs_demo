@@ -17,7 +17,6 @@ Procedure
       - [GitHub Pages](#github-pages)
   - [When you update the documentation](#when-you-update-the-documentation)
   - [Add URL to Repo page](#add-url-to-repo-page)
-  - [</details>](#details)
 
 ## Initial Setup
 
@@ -219,6 +218,7 @@ Configure the main repository page to show the new documentation URL.
 <details>
 <summary>TODO</summary>
 </details>
+
 ------
 
 `*`: your choice of WEBBROWSER might be `chromium`, `firefox`,
