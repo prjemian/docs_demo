@@ -1,17 +1,17 @@
-# docs_demo
+# Procedure Sphinx + GitHub Pages
 
 Demonstration of Sphinx documentation repository publishing to [GitHub
 Pages](https://pages.github.com/) using a [GitHub
 Actions](https://github.com/features/actions) workflow.
 
-CONTENTS
+Procedure
 
-- [docs_demo](#docs_demo)
+- [Procedure Sphinx + GitHub Pages](#procedure-sphinx--github-pages)
   - [Initial Setup](#initial-setup)
-    - [Checkout](#checkout)
+    - [Checkout Repository from GitHub](#checkout-repository-from-github)
     - [Some new files do not belong in git](#some-new-files-do-not-belong-in-git)
-    - [Create the documentation source directory](#create-the-documentation-source-directory)
-    - [Create the workflow](#create-the-workflow)
+    - [Create directory for documentation source](#create-directory-for-documentation-source)
+    - [Add workflow instructions](#add-workflow-instructions)
     - [Push to GitHub](#push-to-github)
       - [GitHub Actions](#github-actions)
       - [GitHub Pages](#github-pages)
@@ -24,7 +24,7 @@ For this example, we'll call it `https://github.com/USERNAME/REPONAME`
 where you will replace `USERNAME` and `REPONAME` with your
 own details.
 
-### Checkout
+### Checkout Repository from GitHub
 
 On the Linux workstation, change to your directory with software
 projects. Perhaps that local directory is `~/Documents`, you choose:
@@ -45,7 +45,7 @@ git:
     echo "build/" > .gitignore
     git commit -ma "ignore local Sphinx build products"
 
-### Create the documentation source directory
+### Create directory for documentation source
 
 Set up the Sphinx structure in a `docs/` subdirectory:
 
@@ -118,13 +118,13 @@ the local workstation:
     make -C docs clean html
     WEBBROWSER ./docs/build/html/index.html &
 
-### Create the workflow
+### Add workflow instructions
 
 Create the GitHub workflow directory:
 
     mkdir -p ./.github/workflows
 
-Download the workflow from the template repository:
+Download the workflow instructions from the template repository:
 
     pushd ./.github/workflows
     wget https://raw.githubusercontent.com/prjemian/docs_demo/main/.github/workflows/publish-docs.yml
@@ -133,19 +133,22 @@ Download the workflow from the template repository:
 
 ### Push to GitHub
 
-Push these commits back to GitHub (you\'ll need your github username and
-authentication token). This will start the workflow that should create
+Push these commits back to GitHub (you\'ll need your github username and [access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)). This will start the workflow that should create
 the HTML documentation and push it to the `gh-pages` branch:
 
 <details>
 <summary>TODO</summary>
-TODO: Explain the github username and authentication token
+Instead of passwords, GitHub now requires remote users to setup and use a <em>personal access token</em> for authentication during `git push` and others steps that require credentials.
 
-Caution about not putting the token in a repository and NOT to push it to GitHub.  How to remove such a push from the repo entirely (not just undo in later commit)
+A web search for <em>GitHub personal access token</em> should return many links to help on this.  One such link, https://www.howtogeek.com/devops/how-to-set-up-https-personal-access-tokens-for-github-authentication/, provides a good explanation about this PAT and how to manage it locally.
 
-Teach good management of this credential.
+CAUTION: Do <b color="red">NOT</b> put the token in any file that will push it to GitHub.  This would publish your credentials for any hacker anywhere to take over your GitHub account!
 
-git credentials cache is added info
+We've all done something like that at one time or another.  Or committed a really big file that should not remain in the repository.
+
+<b>Q</b>: How to remove such a push from the repo entirely (not just undo in later commit)?
+
+<b>A</b>: Web search for <em>git revert commit</em>.  One link: https://www.theserverside.com/tutorial/How-to-git-revert-a-commit-A-simple-undo-changes-example
 </details>
 
     git push
