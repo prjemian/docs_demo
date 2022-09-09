@@ -1,0 +1,70 @@
+name: Publish Sphinx Docs to GitHub Pages
+
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches:
+      - main
+    tags:
+      - '*'  # all tags
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:   # allow manual triggering
+
+# see: https://sphinx-notes.github.io/pages/
+# see: https://github.com/marketplace/actions/sphinx-to-github-pages
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+
+  publish-docs:
+    name: Publish documentation
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Install Python
+      uses: actions/setup-python@v2
+
+    - name: Checkout repository
+      uses: actions/checkout@master
+      with:
+        fetch-depth: 0 # otherwise, you will fail to push refs to dest repo
+
+    # optional/example configuration is commented out here
+
+    # - name: Install system packages
+    #   # Install pandoc (if needed)
+    #   run: |
+    #     sudo apt-get update && sudo apt-get install pandoc
+
+    # - name: pip install packages
+    #   # Install ReadTheDocs theme (if needed), "furo" is my new favorite
+    #   run: |
+    #     pip install sphinx-rtd-theme
+
+    # - name: Diagnostics
+    #   run: |
+    #     pip list
+
+    - name: Build and Commit
+      uses: sphinx-notes/pages@v2
+      with:
+        # path to conf.py directory
+        documentation_path: docs/source
+        # default settings shown below
+        target_branch: gh-pages
+        target_path: .
+        repository_path: .
+        requirements_path: ""
+
+    - name: Push changes
+      # remove comment to only publish on new tags
+      # if: startsWith(github.ref, 'refs/tags')
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: gh-pages
