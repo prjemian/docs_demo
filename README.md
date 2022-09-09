@@ -4,37 +4,52 @@ Demonstration of Sphinx documentation repository publishing to [GitHub
 Pages](https://pages.github.com/) using a [GitHub
 Actions](https://github.com/features/actions) workflow.
 
+CONTENTS
+
+- [docs_demo](#docs_demo)
+  - [Initial Setup](#initial-setup)
+    - [Checkout](#checkout)
+    - [Some new files do not belong in git](#some-new-files-do-not-belong-in-git)
+    - [Create the documentation source directory](#create-the-documentation-source-directory)
+  - [When you update the documentation](#when-you-update-the-documentation)
+
 ## Initial Setup
 
-<details>
-<summary>TODO</summary>
-TODO: Make new repo or use existing
-</details>
-
 Create a new GitHub repository (or use an existing one).
+For this example, we'll call it `https://github.com/USERNAME/REPONAME`
+where you will replace `USERNAME` and `REPONAME` with your
+own details.
+
+### Checkout
 
 On the Linux workstation, change to your directory with software
-projects. Perhaps that is `~/Documents`:
+projects. Perhaps that local directory is `~/Documents`, you choose:
 
     cd ~/Documents
 
-Clone the repository from GitHub (replace `USERNAME` and `REPONAME` with your
-own details):
+Clone the repository from GitHub:
 
     git clone https://github.com/USERNAME/REPONAME
     cd reponame
 
-Tell git to ignore a directory, then commit this change to git:
+### Some new files do not belong in git
+
+Tell git to ignore a directory (and anything in it), then commit this change to
+git:
 
     touch .gitignore
     echo "build/" > .gitignore
     git commit -ma "ignore local Sphinx build products"
 
+### Create the documentation source directory
+
 Set up the Sphinx structure in a `docs/` subdirectory:
 
 <details>
-<summary>TODO</summary>
-TODO: Explain `pushd` and `popd` and how they relate to `cd`
+<summary>pushd vs. cd</summary>
+Here, we use `pushd` to change directories, since later, `popd` will remember
+the directory where we started.  Think of `pushd` and `popd` as a smart
+implementation of `cd` that remembers.
 </details>
 
     mkdir docs
@@ -42,6 +57,14 @@ TODO: Explain `pushd` and `popd` and how they relate to `cd`
     sphinx-quickstart
 
 Answer the questions from `sphinx-quickstart`:
+
+<details>
+<summary>example</summary>
+`sphinx-quickstart` is a *question and answer* process that configures your documentation
+with details specific to your project.  The results are stored in the
+[`source/conf.py`](/docs/source/conf.py) and [`index.rst`](/docs/source/index.rst) files.
+They can be changed by you as you choose.
+</details>
 
     Welcome to the Sphinx 5.1.1 quickstart utility.
 
@@ -66,7 +89,7 @@ Answer the questions from `sphinx-quickstart`:
 
     For a list of supported codes, see
     https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-language.
-    > Project language [en]: 
+    > Project language [en]:
 
     Creating file ~/Documents/REPONAME/docs/source/conf.py.
     Creating file ~/Documents/REPONAME/docs/source/index.rst.
@@ -80,7 +103,7 @@ Answer the questions from `sphinx-quickstart`:
        make builder
     where "builder" is one of the supported builders, e.g. html, latex or linkcheck.
 
-Switch back to the repository root directory, then commit to git:
+Switch back to the repository root directory, then commit this new directory to git:
 
     popd
     git commit -ma "create documentation directory"
