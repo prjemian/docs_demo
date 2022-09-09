@@ -16,11 +16,12 @@ Steps
 Create a new GitHub repository (or use an existing one).
 
 On the Linux workstation, change to your directory with software projects.
-Perhaps that is ``~/Documents``:
+Perhaps that is ``~/Documents``::
 
     cd ~/Documents
 
-Clone the repository from GitHub:
+Clone the repository from GitHub (replace USERNAME and REPONAME with your own
+details)::
 
     git clone https://github.com/USERNAME/REPONAME
     cd reponame
@@ -64,14 +65,14 @@ Answer the questions from ``sphinx-quickstart``::
    https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-language.
    > Project language [en]: 
 
-   Creating file /home/prjemian/Documents/projects/prjemian/docs/source/conf.py.
-   Creating file /home/prjemian/Documents/projects/prjemian/docs/source/index.rst.
-   Creating file /home/prjemian/Documents/projects/prjemian/docs/Makefile.
-   Creating file /home/prjemian/Documents/projects/prjemian/docs/make.bat.
+   Creating file ~/Documents/REPONAME/docs/source/conf.py.
+   Creating file ~/Documents/REPONAME/docs/source/index.rst.
+   Creating file ~/Documents/REPONAME/docs/Makefile.
+   Creating file ~/Documents/REPONAME/docs/make.bat.
 
    Finished: An initial directory structure has been created.
 
-   You should now populate your master file /home/prjemian/Documents/projects/prjemian/docs/source/index.rst and create other documentation
+   You should now populate your master file ~/Documents/REPONAME/docs/source/index.rst and create other documentation
    source files. Use the Makefile to build the docs, like so:
       make builder
    where "builder" is one of the supported builders, e.g. html, latex or linkcheck.
@@ -103,12 +104,23 @@ authentication token)::
 
    git push
 
+Check the Actions logs on the the repository's GitHub web site
+(https://github.com/USERNAME/REPONAME/actions) to confirm the ``Publish Sphinx
+Docs to GitHub Pages`` workflow completed successfully.
+
 Configure the repository's GitHub Pages settings on the GitHub web site
 (https://github.com/USERNAME/REPONAME/settings/pages), and make these settings
 in the Build and Deployment section:
 
-* Source: _Deploy from a branch_
+* Source: ``Deploy from a branch``
+* folder: select ``/`` (root) from the drop down
 * Branch: select ``gh-pages`` from the drop down, and press ``Save``
+
+Go back to the Actions logs (https://github.com/USERNAME/REPONAME/actions).
+A new workflow called ``pages-build-deployment`` will be run (running).
+Once this is complete (and successful), the new docs will be published to
+https://USERNAME.github.io/REPONAME.  Note that the first time, it
+takes a couple minutes before this page appears.
 
 Indices and tables
 ==================
