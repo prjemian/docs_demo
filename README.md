@@ -132,6 +132,11 @@ Download the workflow instructions from the template repository:
     popd
     git commit -ma "add documentation publishing workflow"
 
+<details>
+<summary>Explanation</summary>
+TODO: Explain the workflow
+</details>
+
 ### Push to GitHub
 
 Push these commits back to GitHub (you\'ll need your github username and [access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)). This will start the workflow that should create
