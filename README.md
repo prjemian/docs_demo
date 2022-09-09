@@ -25,6 +25,10 @@ Tell git to ignore a directory, then commit this change to git:
 
 Set up the Sphinx structure in a `docs/` subdirectory:
 
+<details>
+TODO: Explain `pushd` and `popd` and how they relate to `cd`
+</details>
+
     mkdir docs
     pushd docs
     sphinx-quickstart
