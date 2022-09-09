@@ -15,8 +15,8 @@ Procedure
     - [Push to GitHub](#push-to-github)
       - [GitHub Actions](#github-actions)
       - [GitHub Pages](#github-pages)
+    - [Add URL to Repo page](#add-url-to-repo-page)
   - [When you update the documentation](#when-you-update-the-documentation)
-  - [Add URL to Repo page](#add-url-to-repo-page)
 
 ## Initial Setup
 
@@ -190,6 +190,14 @@ complete (and successful), the new docs will be published to
 <https://USERNAME.github.io/REPONAME>. Note that the first time, it
 takes a couple minutes before this page appears.
 
+### Add URL to Repo page
+
+Configure the main repository page to show the new documentation URL.
+
+<details>
+<summary>TODO</summary>
+</details>
+
 ## When you update the documentation
 
 Edit content in the `docs/source` directory as desired. Consult the
@@ -210,14 +218,6 @@ is successful, then the revised documentation will be published.
 
     git commit -am "explain the changes, briefly"
     git push
-
-## Add URL to Repo page
-
-Configure the main repository page to show the new documentation URL.
-
-<details>
-<summary>TODO</summary>
-</details>
 
 ------
 
