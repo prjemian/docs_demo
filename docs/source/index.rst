@@ -10,8 +10,8 @@ Welcome to Documentation Repository's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-Steps
------
+Initial Setup
+-------------
 
 Create a new GitHub repository (or use an existing one).
 
@@ -82,11 +82,11 @@ Switch back to the repository root directory, then commit to git::
    popd
    git commit -ma "create documentation directory"
 
-Test that Sphinx can build the documentation.  To view use ``chromium``, ``firefox``,
-``google-chrome``, whatever::
+Test that Sphinx can build the documentation.  Using a WEBBROWSER [#browser]_ on
+the local workstation::
 
    make -C docs clean html
-   chromium ./docs/build/html/index.html &
+   WEBBROWSER ./docs/build/html/index.html &
 
 Create the GitHub workflow directory::
 
@@ -100,7 +100,8 @@ Download the workflow from the template repository::
    git commit -ma "add documentation publishing workflow"
 
 Push these commits back to GitHub (you'll need your github username and
-authentication token)::
+authentication token).  This will start the workflow that should create the HTML
+documentation and push it to the ``gh-pages`` branch::
 
    git push
 
@@ -116,11 +117,40 @@ in the Build and Deployment section:
 * folder: select ``/`` (root) from the drop down
 * Branch: select ``gh-pages`` from the drop down, and press ``Save``
 
-Go back to the Actions logs (https://github.com/USERNAME/REPONAME/actions).
-A new workflow called ``pages-build-deployment`` will be run (running).
+Go back to the Actions logs (https://github.com/USERNAME/REPONAME/actions). A
+new workflow called ``pages-build-deployment`` will run (or be running already).
 Once this is complete (and successful), the new docs will be published to
-https://USERNAME.github.io/REPONAME.  Note that the first time, it
-takes a couple minutes before this page appears.
+https://USERNAME.github.io/REPONAME.  Note that the first time, it takes a
+couple minutes before this page appears.
+
+When you update the documentation
+---------------------------------
+
+Edit content in the ``docs/source`` directory as desired.  Consult the Sphinx
+web site [#Sphinx]_ for more information.
+
+To rebuild the documentation locally (from the repository's root directory)::
+
+   make -C docs html
+
+View [#browser]_ the HTML documentation again::
+
+   WEBBROWSER ./docs/build/html/index.html &
+
+Once you are satisfied with the changes locally, commit and push to GitHub.
+This will trigger a new run of the publishing workflow.  If that is successful,
+then the revised documentation will be published.
+
+::
+
+   git commit -am "explain the changes, briefly"
+   git push
+
+
+------
+
+.. [#browser] your choice of WEBBROWSER might be ``chromium``, ``firefox``, ``google-chrome``, ``brave``, ``opera``, whatever
+.. [#Sphinx] Sphinx web site: https://www.sphinx-doc.org
 
 Indices and tables
 ==================
