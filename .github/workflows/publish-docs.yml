@@ -26,36 +26,43 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/setup-python@v2
+    - name: Install Python
+      uses: actions/setup-python@v2
 
-    - name: Checkout
+    - name: Checkout repository
       uses: actions/checkout@master
       with:
         fetch-depth: 0 # otherwise, you will fail to push refs to dest repo
 
-    # - name: Install Python and pip
-    #   run: |
-    #     sudo apt-get update && sudo apt-get install -y python3-pip
+    # optional/example configuration is commented out here
 
-    # - name: Install pandoc
+    # - name: Install system packages
+    #   # Install pandoc (if needed)
     #   run: |
     #     sudo apt-get update && sudo apt-get install pandoc
 
-    # - name: Install Sphinx build requirements
+    # - name: pip install packages
+    #   # Install ReadTheDocs theme (if needed), "furo" is my new favorite
     #   run: |
-    #     pip install sphinx
+    #     pip install sphinx-rtd-theme
 
-    # # - name: Diagnostics
-    # #   run: |
-    # #     pip list
+    # - name: Diagnostics
+    #   run: |
+    #     pip list
 
     - name: Build and Commit
       uses: sphinx-notes/pages@v2
       with:
         # path to conf.py directory
         documentation_path: docs/source
+        # default settings shown below
+        target_branch: gh-pages
+        target_path: .
+        repository_path: .
+        requirements_path: ""
 
     - name: Push changes
+      # remove comment to only publish on new tags
       # if: startsWith(github.ref, 'refs/tags')
       uses: ad-m/github-push-action@master
       with:
