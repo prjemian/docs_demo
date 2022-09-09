@@ -104,19 +104,38 @@ Push these commits back to GitHub (you\'ll need your github username and
 authentication token). This will start the workflow that should create
 the HTML documentation and push it to the `gh-pages` branch:
 
+<details>
+<summary>TODO</summary>
+TODO: Explain the github username and authentication token
+Caution about not putting the token in a repository and NOT to push it to GitHub.  How to remove such a push from the repo entirely (not just undo in later commit)
+Teach good management of this credential.
+git credentials cache is added info
+</details>
+
     git push
 
 Check the Actions logs on the the repository\'s GitHub web site
 (<https://github.com/USERNAME/REPONAME/actions>) to confirm the
 `Publish Sphinx Docs to GitHub Pages` workflow completed successfully.
 
+<details>
+<summary>TODO</summary>
+TODO: Explain about errors in the Actions and how to diagnose
+What could go wrong?  Not likely to be your source code if you built it locally.
+More likely to be:
+* software versions
+* missing packages
+* YAML file errors
+* random brownout in GitHub Actions service
+</details>
+
 Configure the repository\'s GitHub Pages settings on the GitHub web site
 (<https://github.com/USERNAME/REPONAME/settings/pages>), and make these
 settings in the Build and Deployment section:
 
--   Source: `Deploy from a branch`
--   folder: select `/` (root) from the drop down
--   Branch: select `gh-pages` from the drop down, and press `Save`
+- Source: `Deploy from a branch`
+- folder: select `/` (root) from the drop down
+- Branch: select `gh-pages` from the drop down, and press `Save`
 
 Go back to the Actions logs
 (<https://github.com/USERNAME/REPONAME/actions>). A new workflow called
