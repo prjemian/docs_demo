@@ -1,6 +1,8 @@
 # docs_demo
 
-Demonstration of Sphinx documentation repository on GitHub.
+Demonstration of Sphinx documentation repository publishing to [GitHub
+Pages](https://pages.github.com/) using a [GitHub
+Actions](https://github.com/features/actions) workflow.
 
 ## Initial Setup
 
