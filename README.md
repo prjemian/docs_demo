@@ -219,7 +219,7 @@ directory):
 
     make -C docs html
 
-View (`**`) the HTML documentation again:
+View (`*`) the HTML documentation again:
 
     WEBBROWSER ./docs/build/html/index.html &
 
