@@ -123,6 +123,9 @@ the local workstation:
     make -C docs clean html
     WEBBROWSER ./docs/build/html/index.html &
 
+Here, you will replace `WEBBROWSER` with your choice of web browser software
+(see the `*` footnote below).
+
 ### Add workflow instructions
 
 Create the GitHub workflow directory:
@@ -222,9 +225,6 @@ directory):
 View (`*`) the HTML documentation again:
 
     WEBBROWSER ./docs/build/html/index.html &
-
-Here, you will replace `WEBBROWSER` with your choice of web brwoser software
-(see the `*` footnote below).
 
 Once you are satisfied with the changes locally, commit and push to
 GitHub. This will trigger a new run of the publishing workflow. If that
