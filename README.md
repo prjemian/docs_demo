@@ -43,12 +43,15 @@ Tell git to ignore a directory (and anything in it), then commit this change to
 git:
 
     touch .gitignore
-    echo "build/" > .gitignore
-    git commit -ma "ignore local Sphinx build products"
+    echo "" >> .gitignore
+    echo "# Sphinx documentation builder" >> .gitignore
+    echo "build/" >> .gitignore
+    git add .gitignore
+    git commit -m "ignore local Sphinx build products"
 
 ### Create directory for documentation source
 
-Set up the Sphinx structure in a `docs/` subdirectory:
+Set up the Sphinx structure in a `docs/` subdirectory (you'll need to ensure you have an executable `sphinx-quickstart` available):
 
 <details>
 <summary>pushd vs. cd</summary>
@@ -111,7 +114,8 @@ They can be changed by you as you choose.
 Switch back to the repository root directory, then commit this new directory to git:
 
     popd
-    git commit -ma "create documentation directory"
+    git add docs
+    git commit -m "create documentation directory"
 
 Test that Sphinx can build the documentation. Using a WEBBROWSER (`*`) on
 the local workstation:
@@ -130,7 +134,8 @@ Download the workflow instructions from the template repository:
     pushd ./.github/workflows
     wget https://raw.githubusercontent.com/prjemian/docs_demo/main/.github/workflows/publish-docs.yml
     popd
-    git commit -ma "add documentation publishing workflow"
+    git add ./.github
+    git commit -m "add documentation publishing workflow"
 
 <details>
 <summary>Explanation</summary>
@@ -172,10 +177,11 @@ TODO: Explain about errors in the Actions and how to diagnose
 What could go wrong?  Not likely to be your source code if you built it locally.
 More likely to be:
 
-* software versions
-* missing packages
-* YAML file errors
-* random brownout in GitHub Actions service
+- software versions
+- missing packages
+- YAML file errors
+- random brownout in GitHub Actions service
+
 </details>
 
 #### GitHub Pages
