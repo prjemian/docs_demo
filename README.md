@@ -35,7 +35,7 @@ projects. Perhaps that local directory is `~/Documents`, you choose:
 Clone the repository from GitHub:
 
     git clone https://github.com/USERNAME/REPONAME
-    cd reponame
+    cd REPONAME
 
 ### Some new files do not belong in git
 
