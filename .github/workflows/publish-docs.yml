@@ -1,9 +1,10 @@
 name: Publish Sphinx Docs to GitHub Pages
 
-# Triggers the workflow on:
-# - any pull request
-# - push new tag to main branch  push:
 on:
+  # Triggers the workflow on:
+  # - any pull request
+  # - push new tag to main branch
+  push:
     branches:
       - main
     tags:
