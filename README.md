@@ -238,6 +238,8 @@ is successful, then the revised documentation will be published.
     git commit -am "explain the changes, briefly"
     git push
 
+TODO: add the URL to the main page
+
 ------
 
 <br />
