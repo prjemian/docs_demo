@@ -190,12 +190,17 @@ More likely to be:
 #### GitHub Pages
 
 Configure the repository\'s GitHub Pages settings on the GitHub web site
-(<https://github.com/USERNAME/REPONAME/settings/pages>), and make these
-settings in the Build and Deployment section:
+(<https://github.com/USERNAME/REPONAME/settings/pages>).
+
+![Pages settings before](images/pages-settings-before.png "before changes")
+
+Make these settings in the Build and Deployment section:
 
 - Source: `Deploy from a branch`
 - folder: select `/` (root) from the drop down
 - Branch: select `gh-pages` from the drop down, and press `Save`
+
+![Pages settings after](images/pages-settings-after.png "after changes")
 
 Go back to the Actions logs
 (<https://github.com/USERNAME/REPONAME/actions>). A new workflow called
